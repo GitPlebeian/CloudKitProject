@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8679686E23143CC900F8225E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8679686D23143CC900F8225E /* CloudKit.framework */; };
 		86A0A7D22314395F00192CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A0A7D12314395F00192CB9 /* AppDelegate.swift */; };
-		86A0A7D42314395F00192CB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A0A7D32314395F00192CB9 /* ViewController.swift */; };
 		86A0A7D72314395F00192CB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86A0A7D52314395F00192CB9 /* Main.storyboard */; };
 		86A0A7D92314396000192CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A0A7D82314396000192CB9 /* Assets.xcassets */; };
 		86A0A7DC2314396000192CB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86A0A7DA2314396000192CB9 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8679686B23143CC300F8225E /* CloudKidHype.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudKidHype.entitlements; sourceTree = "<group>"; };
+		8679686D23143CC900F8225E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		86A0A7CE2314395F00192CB9 /* CloudKidHype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKidHype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A0A7D12314395F00192CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		86A0A7D32314395F00192CB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		86A0A7D62314395F00192CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		86A0A7D82314396000192CB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86A0A7DB2314396000192CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -29,17 +30,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8679686E23143CC900F8225E /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86796869231439F100F8225E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				86A0A7D12314395F00192CB9 /* AppDelegate.swift */,
+				86A0A7D82314396000192CB9 /* Assets.xcassets */,
+				86A0A7DD2314396000192CB9 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8679686A23143A0700F8225E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				86A0A7D52314395F00192CB9 /* Main.storyboard */,
+				86A0A7DA2314396000192CB9 /* LaunchScreen.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		8679686C23143CC900F8225E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8679686D23143CC900F8225E /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		86A0A7C52314395E00192CB9 = {
 			isa = PBXGroup;
 			children = (
 				86A0A7D02314395F00192CB9 /* CloudKidHype */,
 				86A0A7CF2314395F00192CB9 /* Products */,
+				8679686C23143CC900F8225E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,12 +84,9 @@
 		86A0A7D02314395F00192CB9 /* CloudKidHype */ = {
 			isa = PBXGroup;
 			children = (
-				86A0A7D12314395F00192CB9 /* AppDelegate.swift */,
-				86A0A7D32314395F00192CB9 /* ViewController.swift */,
-				86A0A7D52314395F00192CB9 /* Main.storyboard */,
-				86A0A7D82314396000192CB9 /* Assets.xcassets */,
-				86A0A7DA2314396000192CB9 /* LaunchScreen.storyboard */,
-				86A0A7DD2314396000192CB9 /* Info.plist */,
+				8679686B23143CC300F8225E /* CloudKidHype.entitlements */,
+				8679686A23143A0700F8225E /* UI */,
+				86796869231439F100F8225E /* Resources */,
 			);
 			path = CloudKidHype;
 			sourceTree = "<group>";
@@ -96,6 +123,17 @@
 				TargetAttributes = {
 					86A0A7CD2314395F00192CB9 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -135,7 +173,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86A0A7D42314395F00192CB9 /* ViewController.swift in Sources */,
 				86A0A7D22314395F00192CB9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,9 +319,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CloudKidHype/CloudKidHype.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2WP5X762NJ;
-				INFOPLIST_FILE = CloudKidHype/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CloudKidHype/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,9 +338,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CloudKidHype/CloudKidHype.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2WP5X762NJ;
-				INFOPLIST_FILE = CloudKidHype/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CloudKidHype/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

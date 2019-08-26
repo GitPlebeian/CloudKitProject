@@ -14,11 +14,18 @@ class HypeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        HypeController.shared.fetchHypes { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     // MARK: - Actions
     
-    @IBAction func addHypeButtonTapped(_ sender: Any) {
+    func presentAddHypeAleart() {
         let alertController = UIAlertController(title: "Get Hype", message: "What is hype my never die", preferredStyle: .alert)
         
         alertController.addTextField { (textfield) in
@@ -43,6 +50,10 @@ class HypeTableViewController: UITableViewController {
         alertController.addAction(addHypeAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
+    }
+    
+    @IBAction func addHypeButtonTapped(_ sender: Any) {
+        presentAddHypeAleart()
     }
 
     // MARK: - Table view data source

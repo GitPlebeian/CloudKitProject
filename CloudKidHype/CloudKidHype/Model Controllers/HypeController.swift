@@ -33,10 +33,24 @@ class HypeController {
         }
     }
     
-//    func loadHypes() {
-//        
-//        publicDB.fetch(withRecordID: <#T##CKRecord.ID#>, completionHandler: <#T##(CKRecord?, Error?) -> Void#>)
-//    }
+    func fetchHypes(completion: @escaping (Bool) -> Void) {
+        
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: Constants.recordTypeKey, predicate: predicate)
+        
+        publicDB.perform(query, inZoneWith: nil) { (records, error) in
+            if let error = error {
+                print("Big Error \(error)")
+                completion(false)
+                return
+            }
+            guard let records = records else {completion(false); return}
+            
+            let hypes = records.compactMap({Hype(ckRecord: $0)})
+            self.hypes = hypes
+            completion(true)
+        }
+    }
     
     
 }

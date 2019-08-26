@@ -22,12 +22,16 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="HYPE CITY" id="qQp-dR-94G">
-                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="gf2-RB-cFc"/>
+                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="gf2-RB-cFc">
+                                        <connections>
+                                            <action selector="addHypeButtonTapped:" destination="VT5-qH-ZSG" id="GeZ-3U-iDV"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="DoV-9s-Y6p" detailTextLabel="8wh-0Y-X1O" imageView="T2J-0X-nUZ" style="IBUITableViewCellStyleSubtitle" id="NNE-rn-by8">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="hypeCell" textLabel="DoV-9s-Y6p" detailTextLabel="8wh-0Y-X1O" imageView="T2J-0X-nUZ" style="IBUITableViewCellStyleSubtitle" id="NNE-rn-by8">
                                 <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NNE-rn-by8" id="xdw-5Z-wEK">

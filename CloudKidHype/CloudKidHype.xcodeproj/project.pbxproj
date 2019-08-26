@@ -10,6 +10,7 @@
 		8679686E23143CC900F8225E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8679686D23143CC900F8225E /* CloudKit.framework */; };
 		867968722314419200F8225E /* HypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867968712314419200F8225E /* HypeTableViewController.swift */; };
 		867968752314423B00F8225E /* Hype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867968742314423B00F8225E /* Hype.swift */; };
+		8679687823144A6900F8225E /* HypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8679687723144A6900F8225E /* HypeController.swift */; };
 		86A0A7D22314395F00192CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A0A7D12314395F00192CB9 /* AppDelegate.swift */; };
 		86A0A7D72314395F00192CB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86A0A7D52314395F00192CB9 /* Main.storyboard */; };
 		86A0A7D92314396000192CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86A0A7D82314396000192CB9 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		8679686D23143CC900F8225E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		867968712314419200F8225E /* HypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeTableViewController.swift; sourceTree = "<group>"; };
 		867968742314423B00F8225E /* Hype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hype.swift; sourceTree = "<group>"; };
+		8679687723144A6900F8225E /* HypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HypeController.swift; sourceTree = "<group>"; };
 		86A0A7CE2314395F00192CB9 /* CloudKidHype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKidHype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86A0A7D12314395F00192CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86A0A7D62314395F00192CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8679687923144A6C00F8225E /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8679687723144A6900F8225E /* HypeController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
 		86A0A7C52314395E00192CB9 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +118,7 @@
 				8679686A23143A0700F8225E /* UI */,
 				867968732314419500F8225E /* View Controllers */,
 				867968762314423E00F8225E /* Models */,
+				8679687923144A6C00F8225E /* Model Controllers */,
 				86796869231439F100F8225E /* Resources */,
 			);
 			path = CloudKidHype;
@@ -196,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86A0A7D22314395F00192CB9 /* AppDelegate.swift in Sources */,
+				8679687823144A6900F8225E /* HypeController.swift in Sources */,
 				867968722314419200F8225E /* HypeTableViewController.swift in Sources */,
 				867968752314423B00F8225E /* Hype.swift in Sources */,
 			);

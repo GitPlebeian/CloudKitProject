@@ -18,11 +18,11 @@ struct Constants {
 
 class Hype {
     
-    let hypeText: String
+    let text: String
     let timestamp: Date
     
     init(text: String, timestamp: Date = Date()) {
-        self.hypeText = text
+        self.text = text
         self.timestamp = timestamp
     }
 }
@@ -36,7 +36,7 @@ extension CKRecord {
     convenience init(hype: Hype) {
         // Same as (Save) - Upload
         self.init(recordType: Constants.recordTypeKey)
-        self.setValue(hype.hypeText, forKey: Constants.recordTextKey)
+        self.setValue(hype.text, forKey: Constants.recordTextKey)
         self.setValue(hype.timestamp, forKey: Constants.recordTimestampKey)
     }
 }

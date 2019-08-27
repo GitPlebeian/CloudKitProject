@@ -32,8 +32,9 @@ class HypeTableViewController: UITableViewController {
         // Add the refresh control to your UIScrollView object.
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action:
-            #selector(handleRefreshControl),
-                                                  for: .valueChanged)
+            #selector(handleRefreshControl),for: .valueChanged)
+        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Fetching Deem Hiypes")
+        tableView.refreshControl?.tintColor = UIColor.red
     }
     
     @objc func handleRefreshControl() {

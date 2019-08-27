@@ -22,13 +22,13 @@ class HypeController {
     func saveHype(text: String, completion: @escaping (Bool) -> Void) {
         let hype = Hype(text: text)
         let hypeRecord = CKRecord(hype: hype)
+        hypes.insert(hype, at: 0)
         publicDB.save(hypeRecord) { (_, error) in
             if let error = error {
                 print("Big Error \(error)")
                 completion(false)
                 return
             }
-            self.hypes.append(hype)
             completion(true)
         }
     }
@@ -52,5 +52,41 @@ class HypeController {
         }
     }
     
+    func removeHype(_ hype: Hype, completion: @escaping (Bool) -> Void) {
+        guard let hypeRecordID = hype.ckRecordID, let firstIndex = self.hypes.firstIndex(of: hype) else {return}
+        
+        hypes.remove(at: firstIndex)
+        
+        publicDB.delete(withRecordID: hypeRecordID) { (_, error) in
+            if let error = error {
+                print("Error at: \(#function) Error: \(error)\nLocalized Error: \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+    }
     
+    func updateHype(hype: Hype, with text: String, completion: @escaping (Bool) -> Void) {
+        
+        hype.text = text
+        hype.timestamp = Date()
+        
+        // Updates hype
+        let modificationOP = CKModifyRecordsOperation(recordsToSave: [CKRecord(hype: hype)], recordIDsToDelete: nil)
+        modificationOP.savePolicy = .changedKeys
+        modificationOP.queuePriority = .veryHigh
+        modificationOP.qualityOfService = .userInteractive
+        
+        modificationOP.modifyRecordsCompletionBlock = { (_, _, error) in
+            if let error = error {
+                print("Error at: \(#function) Error: \(error)\nLocalized Error: \(error.localizedDescription)")
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+        
+        publicDB.add(modificationOP)
+    }
 }

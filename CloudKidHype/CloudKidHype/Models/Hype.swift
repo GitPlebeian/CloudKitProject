@@ -18,8 +18,10 @@ struct Constants {
 
 class Hype {
     
-    let text: String
-    let timestamp: Date
+    var text: String
+    var timestamp: Date
+    // Adding on the record ID for update / delete
+    var ckRecordID: CKRecord.ID?
     
     init(text: String, timestamp: Date = Date()) {
         self.text = text
@@ -27,17 +29,15 @@ class Hype {
     }
 }
 
-//extension Hype {
-//    convenience init?(ckRecord)
-//}
-
 extension CKRecord {
     // Creates a CKRecord from a hupe
     convenience init(hype: Hype) {
         // Same as (Save) - Upload
-        self.init(recordType: Constants.recordTypeKey)
+        let recordID = hype.ckRecordID ?? CKRecord.ID(recordName: UUID().uuidString)
+        self.init(recordType: Constants.recordTypeKey, recordID: recordID)
         self.setValue(hype.text, forKey: Constants.recordTextKey)
         self.setValue(hype.timestamp, forKey: Constants.recordTimestampKey)
+        hype.ckRecordID = recordID
     }
 }
 
@@ -47,5 +47,15 @@ extension Hype {
     convenience init?(ckRecord: CKRecord) {
         guard let hypeText = ckRecord[Constants.recordTextKey] as? String, let hypeTimestamp = ckRecord[Constants.recordTimestampKey] as? Date else {return nil}
         self.init(text: hypeText, timestamp: hypeTimestamp)
+        // Used to update and delete records
+        ckRecordID = ckRecord.recordID
+    }
+}
+
+extension Hype: Equatable {
+    static func ==(lhs: Hype, rhs: Hype) -> Bool {
+        return lhs.text == rhs.text &&
+        lhs.timestamp == rhs.timestamp &&
+        lhs.ckRecordID == rhs.ckRecordID
     }
 }

@@ -101,11 +101,7 @@ class HypeTableViewController: UITableViewController {
         let hype = HypeController.shared.hypes[indexPath.row]
         
         cell.textLabel?.text = hype.text
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM dd yyyy"
-        
-        cell.detailTextLabel?.text = dateFormatter.string(from: hype.timestamp)
+        cell.detailTextLabel?.text = DateHelper.shared.stringForDate(date: hype.timestamp)
 
         return cell
     }
